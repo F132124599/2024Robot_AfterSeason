@@ -1,0 +1,31 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 0.8,
+      "y": 6.51
+    },
+    "rotation": 58.5
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "ShootPrepSpeaker"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ShootFinalSpeaker"
+          }
+        }
+      ]
+    }
+  },
+  "folder": null,
+  "choreoAuto": false
+}

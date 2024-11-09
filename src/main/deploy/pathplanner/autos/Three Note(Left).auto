@@ -1,0 +1,109 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 0.797219890403907,
+      "y": 6.506695703974367
+    },
+    "rotation": 58.495733280795854
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "ShootPrepSpeaker"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.3
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ShootSpeaker"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.5
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Left go out to left"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Leftout go back to left"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ShootSpeaker"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.5
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Left go out to left(far1)"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Leftout(far1) back to left"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ShootSpeaker"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.5
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Left go out to left(far2)"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Leftout(far2) go back to blueline"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ShootFinalSpeaker"
+          }
+        }
+      ]
+    }
+  },
+  "folder": null,
+  "choreoAuto": false
+}
