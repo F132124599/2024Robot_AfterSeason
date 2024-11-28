@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.PhotonVisionSubsystem;
 import frc.robot.subsystems.SwerveSubsystem;
 
-public class AprilTag extends Command {
+public class AprilTagRotation extends Command {
   /** Creates a new AprilTag. */
   private final PhotonVisionSubsystem m_PhotonVisionSubsystem;
   private final SwerveSubsystem m_SwerveSubsystem;
@@ -17,7 +17,7 @@ public class AprilTag extends Command {
   private double ySpeedOutPut;
   private double zSpeedOutPut;
   
-  public AprilTag(PhotonVisionSubsystem photonVisionSubsystem, SwerveSubsystem swerveSubsystem) {
+  public AprilTagRotation(PhotonVisionSubsystem photonVisionSubsystem, SwerveSubsystem swerveSubsystem) {
     // Use addRequirements() here to declare subsystem dependencies.
     this.m_PhotonVisionSubsystem = photonVisionSubsystem;
     this.m_SwerveSubsystem = swerveSubsystem;

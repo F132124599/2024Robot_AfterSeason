@@ -8,6 +8,7 @@ import org.photonvision.PhotonCamera;
 import org.photonvision.targeting.PhotonPipelineResult;
 import org.photonvision.targeting.PhotonTrackedTarget;
 
+import edu.wpi.first.apriltag.AprilTagDetection;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Transform3d;
@@ -36,6 +37,8 @@ public class PhotonVisionSubsystem extends SubsystemBase {
   private PhotonTrackedTarget target;
   private int target_ID;
 
+  private AprilTagDetection detection;
+
   
 
   
@@ -43,10 +46,14 @@ public class PhotonVisionSubsystem extends SubsystemBase {
     photonCamera = new PhotonCamera("Logitech");
     cameraPose = new Pose3d();
 
+    detection = new AprilTagDetection(getName(), target_ID, target_ID, target_ID, null, xPidOutPut, target_ID, null);
+
 
     xPidController = new PIDController(PhotonvisionConstants.xPid_Kp, PhotonvisionConstants.xPid_Ki, PhotonvisionConstants.xPid_Kd);
     yPidController = new PIDController(PhotonvisionConstants.yPid_Kp, PhotonvisionConstants.yPid_Ki, PhotonvisionConstants.yPid_Kd);
     zPidController = new PIDController(PhotonvisionConstants.zPid_Kp, PhotonvisionConstants.zPid_Ki, PhotonvisionConstants.zPid_Kd);
+
+    zPidController.setIntegratorRange(-0.05, 0.05);
   }
 
   public int getTargetID() {
@@ -80,7 +87,7 @@ public class PhotonVisionSubsystem extends SubsystemBase {
     target = result.getBestTarget();
     SmartDashboard.putBoolean("Photon/hasTarget", hasTarget());
     SmartDashboard.putNumber("Photon/zPidOutPut", zPidOutPut);
-    xPidController.setIntegratorRange(-0.05, 0.05);
+    SmartDashboard.putNumber("Photon/xPidOutput", xPidOutPut);
     
     if(hasTarget()){
       double botXValue = getTargetPose().getX();
@@ -92,7 +99,6 @@ public class PhotonVisionSubsystem extends SubsystemBase {
       SmartDashboard.putNumber("Photon/botYValue", botYValue);
       SmartDashboard.putNumber("Photon/botZValue", botZValue);
       SmartDashboard.putNumber("Photon/cameraPose", cameraPose.getRotation().getAngle());
-
       xPidOutPut = xPidController.calculate(botXValue, 0);
       yPidOutPut = yPidController.calculate(botYValue, 0);
       zPidOutPut = zPidController.calculate(botZValue, 180);

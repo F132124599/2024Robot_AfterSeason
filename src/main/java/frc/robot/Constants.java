@@ -55,11 +55,11 @@ public final class Constants {
   }
 
   public final class PhotonvisionConstants {
-    public static final double xPid_Kp = 0;
+    public static final double xPid_Kp = 0.1;
     public static final double xPid_Ki = 0;
     public static final double xPid_Kd = 0;
 
-    public static final double yPid_Kp = 0;
+    public static final double yPid_Kp = 0.1;
     public static final double yPid_Ki = 0;
     public static final double yPid_Kd = 0;
 

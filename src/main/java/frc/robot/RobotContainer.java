@@ -6,7 +6,9 @@ package frc.robot;
 
 import frc.robot.Constants.RobotContainerConstants;
 import frc.robot.commands.VerticalMovement;
-import frc.robot.commands.AprilTag;
+import frc.robot.commands.AprilTagRotation;
+import frc.robot.commands.AprilTagX;
+import frc.robot.commands.AprilTagY;
 import frc.robot.commands.IndexerReverse;
 import frc.robot.commands.ManualDrive;
 import frc.robot.commands.NoteIntake;
@@ -105,7 +107,9 @@ public class RobotContainer {
 
     // driverController.x().whileTrue(new TrackNote_LimeLight(m_swerveSubsystem, m_LimeLightSubsystem, m_indexerSubsystem));
     driverController.leftBumper().and(operatorController.y()).whileTrue(new TrackNote_LimeLight(m_swerveSubsystem, m_LimeLightSubsystem, m_indexerSubsystem));
-    driverController.x().whileTrue(new AprilTag(m_PhotonVisionSubsystem, m_swerveSubsystem));
+    driverController.y().whileTrue(new AprilTagY(m_PhotonVisionSubsystem, m_swerveSubsystem));
+    driverController.x().whileTrue(new AprilTagX(m_PhotonVisionSubsystem, m_swerveSubsystem));
+    driverController.a().whileTrue(new AprilTagRotation(m_PhotonVisionSubsystem, m_swerveSubsystem));
     driverController.b().whileTrue(
       Commands.runOnce(()-> {
         m_swerveSubsystem.resetGyro();
